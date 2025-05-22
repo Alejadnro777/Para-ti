@@ -1,0 +1,140 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #FDF7F6;
+    font-family: DM Serif Text, sans-serif;
+    margin: 0;
+}
+
+.contenedor {
+    position: relative;
+}
+
+.superior {
+    position: absolute;
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-top: 120px solid rgb(253, 185, 255);
+    border-bottom: 120px solid transparent;
+
+    transition: transform .75s;
+    transform-origin: top;
+}
+
+.mensaje {
+  position: absolute;
+  padding: 1.5rem 1.5rem 6.5rem 1.5rem; /* arriba | derecha | abajo | izquierda */
+  line-height: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 22px;
+  background: #eae2b7;
+  width: 360px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.75s ease-in-out;
+  z-index: 1;
+}
+
+.carta {
+    border-left: 180px solid #FADADD;
+    border-right: 180px solid #f0c1e6;
+    border-top: 120px solid transparent;
+    border-bottom: 120px solid #FADADD;
+}
+
+.bx {
+    position: absolute;
+    color: #ff003c;
+    top: 90px;
+    right: 155px;
+    font-size: 50px;
+    animation: palpitar 0.6s linear infinite;
+}
+
+.psorpresa {
+    margin-top: -10px;
+}
+
+.botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boton {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff66b2, #ff4081);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton:hover {
+    background-position: 100% 100%;
+    box-shadow: 0 6px 15px rgb(255, 0, 0);
+}
+
+.abrir-superior {
+    transform: rotateX(180deg);
+}
+
+.abrir-mensaje {
+  max-height: 600px;    /* suficiente alto para mostrar todo el texto */
+  overflow-y: auto;     /* permite scroll vertical si el texto es largo */
+  opacity: 1;           /* visible */
+  transform: translateY(-100px);
+  transition: all 0.75s ease-in-out;
+}
+
+.bx-rotada {
+    color: #f6406a;
+    animation: none; 
+}
+
+.mover-cerrar {
+  transform: translateX(200px);
+  transition: transform 0.5s ease-in-out;
+}
+
+  
+@keyframes palpitar {
+    0% {
+      transform: scale(1.07); /* Tamaño original */
+    }
+    80% {
+      transform: scale(1.0); /* Aumentar el tamaño un poco */
+    }
+    100% {
+      transform: scale(1.08); /* Regresar al tamaño original */
+    }
+}
+
+@media (max-width: 768px) {
+  .mensaje {
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .abrir-mensaje {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .mensaje p {
+    font-size: 1rem;
+  }
+}
